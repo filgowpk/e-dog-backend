@@ -1,0 +1,21 @@
+name: CI Build and Test
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v4
+
+    - name: Build Docker image for CI
+      run: docker build -f Dockerfile.ci . --tag my-app-ci:latest
+
+    - name: Run tests in container
+      run: docker run --rm my-app-ci:latest
