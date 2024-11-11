@@ -1,4 +1,4 @@
-package org.pk.edog.model.utils;
+package org.pk.edog.model.custom;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

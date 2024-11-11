@@ -1,8 +1,8 @@
 package org.pk.edog.seeder;
 
+import org.pk.edog.model.custom.RangeObject;
 import org.pk.edog.model.entity.Dog;
 import org.pk.edog.model.enums.*;
-import org.pk.edog.model.utils.RangeObject;
 import org.pk.edog.repository.DogRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -25,7 +25,6 @@ public class DogSeeder implements CommandLineRunner {
         // Create sample dogs
         List<Dog> dogs = List.of(
                 Dog.builder()
-                        .id(1L)
                         .breed(Breed.LABRADOR_RETRIEVER)
                         .shortDescription("Friendly and outgoing")
                         .description("Labrador Retriever is a friendly and outgoing breed.")
@@ -50,7 +49,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(2L)
                         .breed(Breed.GERMAN_SHEPHERD)
                         .shortDescription("Confident and courageous")
                         .description("German Shepherd is a confident and courageous breed.")
@@ -75,7 +73,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(3L)
                         .breed(Breed.GOLDEN_RETRIEVER)
                         .shortDescription("Intelligent and friendly")
                         .description("Golden Retriever is an intelligent and friendly breed.")
@@ -99,7 +96,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(4L)
                         .breed(Breed.FRENCH_BULLDOG)
                         .shortDescription("Adaptable and playful")
                         .description("French Bulldog is an adaptable and playful breed.")
@@ -124,7 +120,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(5L)
                         .breed(Breed.BULLDOG)
                         .shortDescription("Docile and willful")
                         .description("Bulldog is a docile and willful breed.")
@@ -149,7 +144,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(6L)
                         .breed(Breed.POODLE)
                         .shortDescription("Active and alert")
                         .description("Poodle is an active and alert breed.")
@@ -174,7 +168,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(true)
                         .build(),
                 Dog.builder()
-                        .id(7L)
                         .breed(Breed.BEAGLE)
                         .shortDescription("Curious and merry")
                         .description("Beagle is a curious and merry breed.")
@@ -199,7 +192,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(8L)
                         .breed(Breed.ROTTWEILER)
                         .shortDescription("Loyal and confident")
                         .description("Rottweiler is a loyal and confident breed.")
@@ -224,7 +216,6 @@ public class DogSeeder implements CommandLineRunner {
                         .hypoallergenic(false)
                         .build(),
                 Dog.builder()
-                        .id(9L)
                         .breed(Breed.DACHSHUND)
                         .shortDescription("Lively and courageous")
                         .description("Dachshund is a lively and courageous breed.")
