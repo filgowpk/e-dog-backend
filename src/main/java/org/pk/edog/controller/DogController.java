@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.pk.edog.model.dto.DogSummaryDTO;
 import org.pk.edog.model.entity.Dog;
 import org.pk.edog.model.enums.Breed;
@@ -20,7 +21,8 @@ import java.util.Optional;
 
 import static java.util.Objects.isNull;
 
-@RestController("/api/v1/dog")
+@RestController
+@RequestMapping("/api/v1")
 public class DogController {
 
     private final DogService dogService;
@@ -29,13 +31,15 @@ public class DogController {
         this.dogService = dogService;
     }
 
-    @Operation(summary = "Get a simple list of all dogs", description = "Retrieve a paginated summary list of all dogs with optional sorting and filtering.")
+    @Operation(summary = "Get a simple list of all dogs",
+            description = "Retrieve a paginated summary list of all dogs with optional sorting and filtering.",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of dogs retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "No dogs found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
-    @GetMapping
+    @GetMapping("/dogs")
     public ResponseEntity<List<DogSummaryDTO>> getAllDogsSimpleList(@ModelAttribute DogQuery dogQuery) {
         try {
             List<DogSummaryDTO> dogs = dogService.getAllDogsSimpleList(dogQuery);
@@ -48,13 +52,15 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Get a detailed list of all dogs", description = "Retrieve a paginated detailed list of all dogs with optional sorting and filtering.")
+    @Operation(summary = "Get a detailed list of all dogs",
+            description = "Retrieve a paginated detailed list of all dogs with optional sorting and filtering.",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of dogs retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "No dogs found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
-    @GetMapping("/detailed")
+    @GetMapping("/dogs/detailed")
     public ResponseEntity<List<Dog>> getAllDogsDetailedList(@ModelAttribute DogQuery dogQuery) {
         try {
             List<Dog> dogs = dogService.getAllDogsDetailedList(dogQuery);
@@ -67,13 +73,14 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Get a dog by breed")
+    @Operation(summary = "Get a dog by breed",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Dog retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
-    @GetMapping("/{breed}")
+    @GetMapping("/dogs/{breed}")
     public ResponseEntity<Dog> getDogByBreed(@PathVariable Breed breed) {
         try {
             Optional<Dog> dogOptional = dogService.getDogByBreed(breed);
@@ -84,14 +91,15 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Add a new dog")
+    @Operation(summary = "Add a new dog",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Dog created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
             @ApiResponse(responseCode = "409", description = "Dog already exists", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
-    @PostMapping
+    @PostMapping("/dogs")
     public ResponseEntity<Dog> saveDog(HttpEntity<Dog> dog) {
         try {
             if (isNull(dog.getBody())) {
@@ -105,14 +113,15 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Update a dog by breed")
+    @Operation(summary = "Update a dog by breed",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Dog updated successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
-    @PutMapping
+    @PutMapping("/dogs")
     public ResponseEntity<Dog> updateDogByBreed(HttpEntity<Dog> dog) {
         try {
             if (isNull(dog.getBody())) {
@@ -126,13 +135,14 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Delete a dog by breed")
+    @Operation(summary = "Delete a dog by breed",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Dog deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @DeleteMapping("/{breed}")
+    @DeleteMapping("/dogs/{breed}")
     public ResponseEntity<Void> deleteDogByBreed(@PathVariable Breed breed) {
         try {
             if (dogService.getDogByBreed(breed).isEmpty()) {
@@ -145,12 +155,13 @@ public class DogController {
         }
     }
 
-    @Operation(summary = "Delete all dogs")
+    @Operation(summary = "Delete all dogs",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "All dogs deleted successfully"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @DeleteMapping
+    @DeleteMapping("/dogs")
     public ResponseEntity<Void> deleteAllDogs() {
         try {
             dogService.deleteAllDogs();
