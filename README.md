@@ -27,4 +27,4 @@ Sorting, pagination and filtering should be passed as query parameters.
 
 ### Security
 - **`POST /api/v1/auth/login`**: Get Bearer token for authentication.
-- **`POST /api/v1/auth/register`**: Register a new user.
+- **[SUSPENDED]** **`POST /api/v1/auth/register`**: Register a new user.

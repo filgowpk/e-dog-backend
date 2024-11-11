@@ -5,11 +5,13 @@ import org.pk.edog.service.UserService;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static java.util.Objects.nonNull;
 
-@RestController("/api/v1/auth")
+@RestController
+@RequestMapping("/api/v1/auth")
 public class UserController {
 
     private final UserService userService;
@@ -29,14 +31,14 @@ public class UserController {
         }
     }
 
-    @PostMapping("/register")
-    public HttpEntity<String> register(@RequestBody User user) {
-        try {
-            userService.register(user);
-            return new HttpEntity<>("User registered successfully");
-        } catch (IllegalArgumentException e) {
-            return new HttpEntity<>("User with username " + user.getUsername() + " already exists");
-        }
-    }
+//    @PostMapping("/register")
+//    public HttpEntity<String> register(@RequestBody User user) {
+//        try {
+//            userService.register(user);
+//            return new HttpEntity<>("User registered successfully");
+//        } catch (IllegalArgumentException e) {
+//            return new HttpEntity<>("User with username " + user.getUsername() + " already exists");
+//        }
+//    }
 
 }
