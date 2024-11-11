@@ -61,7 +61,7 @@ pagination and filtering (provided as query parameters):
 - **`GET /actuator/info`**
 
 ### Swagger
-- **`GET /swagger-ui.html`**
+- **`GET /swagger-ui/index.html`**
 - **`GET /v3/api-docs`**
 
 ### Security
