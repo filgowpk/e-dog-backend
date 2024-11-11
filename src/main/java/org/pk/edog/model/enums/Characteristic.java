@@ -15,6 +15,7 @@ public enum Characteristic {
     PLAYFUL("Playful"),
     ALERT("Alert"),
     STUBBORN("Stubborn"),
+    CURIOUS("Curious"),
     LOYAL("Loyal"),
     GENTLE("Gentle"),
     ENERGETIC("Energetic"),

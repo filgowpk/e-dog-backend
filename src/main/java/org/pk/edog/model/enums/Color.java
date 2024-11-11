@@ -20,7 +20,8 @@ public enum Color {
     MERLE("Merle"),
     SABLE("Sable"),
     FAWN("Fawn"),
-    LIVER("Liver");
+    LIVER("Liver"),
+    TRI_COLOR("Tri-color");
 
     private final String description;
 }
