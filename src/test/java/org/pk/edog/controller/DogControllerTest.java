@@ -41,10 +41,9 @@ class DogControllerTest {
 
         ResponseEntity<List<DogSummaryDTO>> response = dogController.getAllDogsSimpleList(null);
 
-        assertEquals(1, 2);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(1, response.getBody().size());
-        verify(dogService, times(2)).getAllDogsSimpleList(any());
+        verify(dogService, times(1)).getAllDogsSimpleList(any());
     }
 
     @Test
