@@ -36,6 +36,7 @@ public class DogController {
             security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of dogs retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "404", description = "No dogs found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -57,6 +58,7 @@ public class DogController {
             security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of dogs retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "404", description = "No dogs found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -77,6 +79,7 @@ public class DogController {
             security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Dog retrieved successfully"),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -96,6 +99,7 @@ public class DogController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Dog created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "409", description = "Dog already exists", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -118,6 +122,7 @@ public class DogController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Dog updated successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -139,6 +144,7 @@ public class DogController {
             security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Dog deleted successfully"),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "404", description = "Dog with specified breed not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -159,6 +165,7 @@ public class DogController {
             security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "All dogs deleted successfully"),
+            @ApiResponse(responseCode = "403", description = "Unauthorized, bearer JWT missing or invalid", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @DeleteMapping("/dogs")
