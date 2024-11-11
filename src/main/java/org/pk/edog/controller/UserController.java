@@ -32,7 +32,7 @@ public class UserController {
     }
 
 //    @PostMapping("/register")
-//    public HttpEntity<String> register(@RequestBody User user  ) {
+//    public HttpEntity<String> register( @RequestBody User user  ) {
 //        try {
 //            userService.register(user);
 //            return new HttpEntity<>("User registered successfully");
