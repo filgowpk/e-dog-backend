@@ -2,7 +2,6 @@ package org.pk.edog.controller;
 
 import org.pk.edog.model.entity.User;
 import org.pk.edog.service.UserService;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
