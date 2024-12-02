@@ -41,8 +41,8 @@ pagination and filtering (provided as query parameters):
 
 #### Filtering
 
-- **`colors`**: List of colors to filter by.
-- **`characteristics`**: List of characteristics to filter by.
+- **`colors`**: List of colors to filter by (OR conditioning).
+- **`characteristics`**: List of characteristics to filter by (OR conditioning).
 - **`originCountry`**: Filter by the country of origin.
 - **`breedingDifficulty`**: Filter by breeding difficulty.
 - **`activityLevel`**: Filter by activity level.
