@@ -18,8 +18,8 @@ public class DogQueryCreator {
         Criteria criteria = new Criteria();
 
         if (nonNull(dogQuery.getOriginCountry())) criteria.and("originCountry").is(dogQuery.getOriginCountry());
-        if (nonNull(dogQuery.getColors())) criteria.and("colors").in(dogQuery.getColors());
-        if (nonNull(dogQuery.getCharacteristics())) criteria.and("characteristics").in(dogQuery.getCharacteristics());
+        if (nonNull(dogQuery.getColors())) criteria.and("colors").all(dogQuery.getColors());
+        if (nonNull(dogQuery.getCharacteristics())) criteria.and("characteristics").all(dogQuery.getCharacteristics());
         if (nonNull(dogQuery.getBreedingDifficulty())) criteria.and("breedingDifficulty").is(dogQuery.getBreedingDifficulty());
         if (nonNull(dogQuery.getActivityLevel())) criteria.and("activityLevel").is(dogQuery.getActivityLevel());
         if (nonNull(dogQuery.getSheddingLevel())) criteria.and("sheddingLevel").is(dogQuery.getSheddingLevel());
