@@ -47,7 +47,7 @@ class UserControllerTest {
         ResponseEntity<Map<String, String>> response = userController.login(user);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Login successful", response.getBody().message);
+        assertEquals("Login successful", response.getBody().get("message"));
     }
 
     @Test
@@ -60,6 +60,6 @@ class UserControllerTest {
         ResponseEntity<Map<String, String>> response = userController.login(user);
 
         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
-        assertEquals("Login failed", response.getBody().message);
+        assertEquals("Login failed", response.getBody().get("message"));
     }
 }
