@@ -10,6 +10,10 @@ import org.pk.edog.service.UserService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 import java.util.List;
@@ -47,7 +51,7 @@ class UserControllerTest {
 
     @Test
     void Login_ReturnsUnauthorized() {
-        when(userService.login(any())).thenReturn(null);
+        when(userService.login(any())).thenReturn("");
 
         User user = new User();
         user.setUsername("TestUsername");
