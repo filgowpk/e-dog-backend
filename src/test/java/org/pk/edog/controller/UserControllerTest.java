@@ -36,7 +36,9 @@ class UserControllerTest {
     void Login_ReturnsToken() {
         when(userService.login(any())).thenReturn("TestToken");
 
-        User user = new User() { username = "TestUsername", password = "TestPassword" };
+        User user = new User();
+        user.setUsername("TestUsername");
+        user.setPassword("TestPassword");
         ResponseEntity<String> response = userController.Login(user);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -47,7 +49,9 @@ class UserControllerTest {
     void Login_ReturnsUnauthorized() {
         when(userService.login(any())).thenReturn(null);
 
-        User user = new User() { username = "TestUsername", password = "TestPassword" };
+        User user = new User();
+        user.setUsername("TestUsername");
+        user.setPassword("TestPassword");
         ResponseEntity<String> response = userController.Login(user);
 
         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
