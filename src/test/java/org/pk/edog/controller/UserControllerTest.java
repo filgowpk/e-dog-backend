@@ -43,7 +43,7 @@ class UserControllerTest {
         User user = new User();
         user.setUsername("TestUsername");
         user.setPassword("TestPassword");
-        ResponseEntity<Map<String, String>> response = userController.Login(user);
+        ResponseEntity<Map<String, String>> response = userController.login(user);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Login successful", response.getBody().message);
@@ -51,12 +51,12 @@ class UserControllerTest {
 
     @Test
     void Login_ReturnsUnauthorized() {
-        when(userService.login(any())).thenReturn("");
+        when(userService.login(any())).thenReturn(null);
 
         User user = new User();
         user.setUsername("TestUsername");
         user.setPassword("TestPassword");
-        ResponseEntity<Map<String, String>> response = userController.Login(user);
+        ResponseEntity<Map<String, String>> response = userController.login(user);
 
         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
         assertEquals("Login failed", response.getBody().message);
