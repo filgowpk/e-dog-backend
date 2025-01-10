@@ -40,12 +40,11 @@ public enum Breed {
     SAINT_BERNARD("Saint Bernard"),
     BASSET_HOUND("Basset Hound"),
     ALASKAN_MALAMUTE("Alaskan Malamute"),
-    AMERICAN_BULLDOG("American Bulldog"),
     PUG("Pug"),
-    ENGLISH_SETTER("English Setter"),
     IRISH_SETTER("Irish Setter"),
     WHIPPET("Whippet"),
     STAFFORDSHIRE_BULL_TERRIER("Staffordshire Bull Terrier"),
+    BORZOI("Borzoi"),
     PAPILLON("Papillon");
 
     private final String displayName;
