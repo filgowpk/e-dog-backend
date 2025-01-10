@@ -20,6 +20,9 @@ public enum Characteristic {
     GENTLE("Gentle"),
     ENERGETIC("Energetic"),
     SHY("Shy"),
+    AFFECTIONATE("Affectionate"),
+    CHEERFUL("Cheerful"),
+    BRAVE("Brave"),
     CONFIDENT("Confident");
 
     private final String description;
