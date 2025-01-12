@@ -40,8 +40,6 @@ public class DogQueryCreator {
             query.with(Sort.by(dogQuery.getSortDesc() ? Sort.Direction.DESC : Sort.Direction.ASC, dogQuery.getSortBy()));
         }
 
-        System.out.println(query);
-
         return query;
     }
 }
